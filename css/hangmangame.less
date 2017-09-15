@@ -1,1 +1,150 @@
-* { box-sizing: border-box;}
+* { 
+    box-sizing: border-box;
+}
+
+/* float clear fix */
+
+.group:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+
+body {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+
+}
+
+.game-header {
+    margin: 20px auto;
+    text-align: center;
+
+    h1 { 
+        font-size: 2rem;
+        color: rgba(0,0,0,0.8);
+        margin-bottom: 0.3rem;
+    }
+
+    p { 
+        font-size: 1.2rem;
+        color: rgba(0,0,0,0.3);
+    }
+}
+
+.game-info {
+    width: 992px;
+    margin: 0 auto;
+    padding: 10px;
+    background-color: #e8e8e8;
+
+    color: rgba(0,0,0,0.5);
+    font-size: 1.2rem;
+
+    .left { 
+            float: left; 
+            width: 50%; 
+            text-align: left; 
+    }
+
+    .right { 
+        float: right; 
+        width: 50%; 
+        text-align: right; 
+    }
+
+    a, a:link, a:visited, a:active, a:hover {
+        color: rgba(0,0,255,0.8);
+    }
+
+    a, a:link, a:visited, a:active {
+        text-decoration: none;
+    }
+
+    a:hover {
+        text-decoration: underline;
+    }
+
+    span {
+        color: rgba(0,0,0,0.8);
+    }
+}
+
+.letter-tile {
+    font-size: 2rem;
+    line-height: 50px;
+    text-align: center;
+    border: 1px solid;
+    border-radius: 4px;
+    width: 50px; height: 50px;
+    display: inline-block;
+}
+
+.game-table {
+    margin: 80px auto;
+    width: 992px;
+    text-align: center;
+    div {
+        .letter-tile;
+        color: rgba(0,0,0,0.8);
+        background-color: rgba(194, 229, 240,0.9);
+        border-color:  rgba(174, 209, 220, 0.9);
+        margin: 2px;
+        &.space {
+            visibility: hidden;
+        }
+    }
+}
+
+.game-letters {
+    margin: 40px auto 20px auto;
+    width: 992px;
+    text-align: left;
+    padding: 10px 5px;
+    background-color: rgba(128,128,128,0.2);
+    div {
+        .letter-tile;
+        color: rgba(0,0,0,0.8);
+        background-color: rgba(0,0,0,0.1);
+        border-color:  rgba(0,0,0,0.2);
+        margin: 2px;
+
+        &.clicked {
+            color: rgba(0,0,0,0.2);
+        }
+    }
+}
+
+.game-score {
+    font-size: 1.1rem;
+    margin: 20px auto;
+    width: 992px;
+    text-align: left;
+    padding: 10px;
+    background-color: rgba(128,128,128,0.2);
+    color: rgba(0,0,0,0.5);
+    .total, .won, .lost {
+        color: rgba(0,0,0,0.8);
+    }
+}
+
+.game-buttons {
+    margin: 20px auto;
+    width: 992px;
+    text-align: center;
+    padding: 10px;
+    a {
+        font-size: 1.1rem;
+        display: block;
+        padding: 10px;
+        background-color: rgba(0,0,0,0.1);
+        width: 150px;
+        margin: 0 auto;
+        border: 1px solid rgba(0,0,0,0.3);
+        border-radius: 4px;
+        color: rgba(0,0,0,0.9);
+        text-decoration: none;
+
+    }
+}
