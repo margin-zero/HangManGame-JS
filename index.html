@@ -11,6 +11,7 @@
     <meta name="format-detection" content="telephone=no">
 
     <!-- PLUGIN CSS -->
+    <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/taipangame.css">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -20,13 +21,57 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-    <title>Tai Pan - the Game</title>
+    <title>Tai Pan - the Game - v. 1.0</title>
 
 </head>
 
 <body>
  
-
+<section class="game clearfix">
+    <h1 class="game__title">Tai Pan</h1>
+    <p class="game__day">day : <span>1</span></p>
+    <p class="game__money">money: <span>1000$</span></p>
+    <p class="game__location">location: <span>Hongkong</span></p>
+    <div class="game__panel left">
+        <table class="cargo-table">
+            <tr>
+                <th colspan="2" class="cargo-table__caption align-left">your cargo</caption>
+                <th class="cargo-table__caption align-right">price</th>
+            </tr>
+            <tr>
+                <th class="cargo-table__cargo-name">cargo 1</th>
+                <td class="cargo-table__cargo-count">0</td>
+                <td class="cargo-table__cargo-price">50</td>
+            </tr>
+            <tr>
+                <th class="cargo-table__cargo-name">cargo 2</th>
+                <td class="cargo-table__cargo-count">0</td>
+                <td class="cargo-table__cargo-price">100</td>
+            </tr>
+            <tr>
+                <th class="cargo-table__cargo-name">cargo 3</th>
+                <td class="cargo-table__cargo-count">0</td>
+                <td class="cargo-table__cargo-price">150</td>
+            </tr>
+            <tr>
+                <th class="cargo-table__cargo-name">cargo 4</th>
+                <td class="cargo-table__cargo-count">0</td>
+                <td class="cargo-table__cargo-price">200</td>
+            </tr>
+            <tr>
+                <th class="cargo-table__cargo-name">cargo 5</th>
+                <td class="cargo-table__cargo-count">0</td>
+                <td class="cargo-table__cargo-price">250</td>
+            </tr>
+            <tr>
+                <th class="cargo-table__summary">free space</th>
+                <td class="cargo-table__free">100</td>
+            </tr>
+        </table>
+    </div>
+    <div class="game__panel right">prawy panel test</div>
+   <footer class="game__footer">this is footer</footer>
+</section>
 
     <!-- jQuery and GameJS -->
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
