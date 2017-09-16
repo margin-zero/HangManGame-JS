@@ -93,6 +93,11 @@ function HangManGameEventFunctions() {
     $(".game-buttons>a").click(function() {
         NewGameClick($(this));
     })
+
+    // click on letter
+    $(".game-letters>div").click(function() {
+        GameLetterClick($(this));
+    })
 }
 
 
@@ -163,7 +168,7 @@ function GameInitQuestion() {
 
     for (i=0; i<current_questions[question_id].length; i++) {
         if (current_questions[question_id].charAt(i) != " ") {
-            $(".game-table").append("<div></div>");
+            $(".game-table").append("<div> </div>");
         } 
         else {
             $(".game-table").append("<div class='space'></div>");
@@ -174,6 +179,33 @@ function GameInitQuestion() {
 }
 
 
+
+function GameLetterClick($this) {
+    
+    var letter_count = 0,
+        i;
+
+    if (game_in_progress) {
+        if (!$($this).hasClass("clicked")) {
+            $($this).addClass("clicked");
+        };
+
+        for (i=0;i<current_questions[question_id-1].length; i++) {
+            if (current_questions[question_id-1].charAt(i) == $($this).text()) {
+                $(".game-table>div").eq(i).text($($this).text());
+                letter_count += 1;
+            };
+        };
+
+        if (letter_count == 0) {
+            errors_left -= 1;           
+        };
+
+        HangManGameRefreshInfo();
+        // alert($($this).index());
+        // alert($($this).text());
+    };
+}
 
 
 // generic functions
