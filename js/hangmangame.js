@@ -8,6 +8,7 @@ var questions,
     score_total = 0,
     score_won = 0,
     score_lost = 0;
+    game_in_progress = false;
 
 // load categories and questions from JSON files
 
@@ -33,21 +34,9 @@ $(document).ready(function() {
 function HangManGameRun() {
 
     HangManGameInit();
+    HangManGameRefreshInfo();
     
-    $(".game-info>.left>p>a").text(categories[category_id]);
-    $(".game-info>.right>p>span").text(errors_left);
-    
-    $(".game-score span.total").text(score_total);
-    $(".game-score span.won").text(score_won);
-    $(".game-score span.lost").text(score_lost);
 
-    if (category_id >= 0) {
-        $(".game-buttons>a").show();
-    }
-    else
-    {
-        $(".game-buttons>a").hide();
-    };
 }
 
 function HangManGameInit() {
@@ -66,9 +55,28 @@ function HangManGameInit() {
     score_total = 0;
     score_won = 0;
     score_lost = 0;
+
+    //reset game status
+    game_in_progress = false;
 }
 
 
+function HangManGameRefreshInfo() {
+    $(".game-info>.left>p>a").text(categories[category_id]);
+    $(".game-info>.right>p>span").text(errors_left);
+    
+    $(".game-score span.total").text(score_total);
+    $(".game-score span.won").text(score_won);
+    $(".game-score span.lost").text(score_lost);
+
+    if (category_id >= 0) {
+        $(".game-buttons>a").show();
+    }
+    else
+    {
+        $(".game-buttons>a").hide();
+    };
+}
 
 
 // assign functions for object events
@@ -80,8 +88,9 @@ function HangManGameEventFunctions() {
         GameCategoryClick($(this));
     });
 
-
-
+    $(".category-list-container>a").click(function() {
+        CategoryListClick($(this));
+    })
 }
 
 
@@ -90,4 +99,20 @@ function HangManGameEventFunctions() {
 
 function GameCategoryClick($this) {
     $(".category-list").show();
+}
+
+function CategoryListClick($this) {
+    if (category_id != $($this).index()-1) {
+        
+        category_id = $($this).index()-1;
+        if (game_in_progress) {
+            score_total += 1;
+            score_lost += 1;
+            game_in_progress = false;
+        };
+        errors_left = 5;
+    };
+    $(".category-list").hide();
+
+    HangManGameRefreshInfo();
 }
