@@ -184,8 +184,6 @@ function initQuestion() {
     var question = current_questions[question_id],
         i;
 
-    alert(question + "   questionID: "+question_id+"   questions.length="+current_questions.length);
-
     for (i=0; i<current_questions[question_id].length; i++) {
         if (current_questions[question_id].charAt(i) != " ") {
             $(".game-table").append("<div> </div>");

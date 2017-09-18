@@ -29,5 +29,22 @@
      {"category":"Best Movie Oscar Winners", "question":"Spotlight"},
      {"category":"Best Movie Oscar Winners", "question":"Birdman"},
      {"category":"Best Movie Oscar Winners", "question":"Argo"},
-     {"category":"Best Movie Oscar Winners", "question":"The Artist"}
+     {"category":"Best Movie Oscar Winners", "question":"The Artist"},
+     {"category":"Movie Characters", "question":"Batman"},
+     {"category":"Movie Characters", "question":"Superman"},
+     {"category":"Movie Characters", "question":"Terminator"},
+     {"category":"Movie Characters", "question":"Spiderman"},
+     {"category":"Movie Characters", "question":"Jack Sparrow"},
+     {"category":"Movie Characters", "question":"Sheldon Cooper"},
+     {"category":"Movie Characters", "question":"Hannibal Lecter"},
+     {"category":"Movie Characters", "question":"Captain America"},
+     {"category":"Movie Characters", "question":"Edward Scissorhand"},
+     {"category":"Movie Characters", "question":"Robin Hood"},
+     {"category":"Movie Characters", "question":"Green Lantern"},
+     {"category":"Movie Characters", "question":"Winnetou"},
+     {"category":"Movie Characters", "question":"Sherlock Holmes"},
+     {"category":"Movie Characters", "question":"James Kirk"},
+     {"category":"Movie Characters", "question":"Spock"},
+     {"category":"Movie Characters", "question":"Jean Luc Picard"},
+     {"category":"Movie Characters", "question":"Luke Skywalker"}
 ]}
