@@ -12,18 +12,13 @@ var questions,
     score_lost = 0;
     game_in_progress = false;
 
-// load categories and questions from JSON files
+// load categories and questions from local JSON files - works only with firefox
 
-$.getJSON("./questions.json", function(json) {
-    questions = json.questions;
-});
+//loadDataFromLocalFiles();
 
-$.getJSON("./categories.json", function(json) {
-    categories = json.categories;
-    $.each(categories, function( index, value ) {
-        $(".category-list-container").append("<a href='#' class='categoryListItem'>" + value + "</a>");
-      });
-});
+// load categories and questions from JSON objects into JS variables
+
+loadDataFromObjects();
 
 
 $(document).ready(function() {
@@ -256,8 +251,95 @@ function letterClick($this) {
 }
 
 
+
 // generic functions
 
 function randomNumber(start, end) {
     return Math.floor(Math.random() * (end - start + 1) + start);
 }
+
+
+
+
+// functions loading questions and categories into JS variables from JSON format
+
+function loadDataFromLocalFiles() {
+    $.getJSON("./questions.json", function(json) {
+        questions = json.questions;
+    });
+
+    $.getJSON("./categories.json", function(json) {
+        categories = json.categories;
+        $.each(categories, function( index, value ) {
+            $(".category-list-container").append("<a href='#' class='categoryListItem'>" + value + "</a>");
+        });
+    });
+}
+
+
+
+
+
+
+function loadDataFromObjects() {
+var categoriesObj = {"categories" : [ "Harry Potter" , "Animated Movies" , "Best Movie Oscar Winners", "Movie Characters" ]},
+
+    questionsObj = {"questions" : [ 
+        {"category":"Harry Potter", "question":"Harry Potter"},
+        {"category":"Harry Potter", "question":"Ron Weasley"},
+        {"category":"Harry Potter", "question":"Lord Voldemort"},
+        {"category":"Harry Potter", "question":"Phineas Nigellus Black"},
+        {"category":"Harry Potter", "question":"Sirius Black"},
+        {"category":"Harry Potter", "question":"Severus Snape"},
+        {"category":"Harry Potter", "question":"Cho Chang"},
+        {"category":"Harry Potter", "question":"Draco Malfoy"},
+        {"category":"Harry Potter", "question":"Fleur Delacour"},
+        {"category":"Harry Potter", "question":"Cedric Diggory"},
+        {"category":"Harry Potter", "question":"Albus Dumbledore"},
+        {"category":"Harry Potter", "question":"Dudley Dursley"},
+        {"category":"Harry Potter", "question":"Petunia Dursley"},
+        {"category":"Harry Potter", "question":"Vernon Dursley"},
+        {"category":"Harry Potter", "question":"Argus Filch"},
+        {"category":"Harry Potter", "question":"Hermione Granger"},
+        {"category":"Harry Potter", "question":"Godric Gryffindor"},
+        {"category":"Harry Potter", "question":"Rubeus Hagrid"},
+        {"category":"Harry Potter", "question":"Madam Hooch"},
+        {"category":"Harry Potter", "question":"Helga Hufflepuff"},
+        {"category":"Harry Potter", "question":"Viktor Krum"},
+        {"category":"Harry Potter", "question":"Bellatrix Lestrange"},
+        {"category":"Harry Potter", "question":"Neville Longbottom"},
+        {"category":"Animated Movies", "question":"Finding Nemo"},
+        {"category":"Animated Movies", "question":"Toy Story"},
+        {"category":"Best Movie Oscar Winners", "question":"Moonlight"},
+        {"category":"Best Movie Oscar Winners", "question":"Spotlight"},
+        {"category":"Best Movie Oscar Winners", "question":"Birdman"},
+        {"category":"Best Movie Oscar Winners", "question":"Argo"},
+        {"category":"Best Movie Oscar Winners", "question":"The Artist"},
+        {"category":"Movie Characters", "question":"Batman"},
+        {"category":"Movie Characters", "question":"Superman"},
+        {"category":"Movie Characters", "question":"Terminator"},
+        {"category":"Movie Characters", "question":"Spiderman"},
+        {"category":"Movie Characters", "question":"Jack Sparrow"},
+        {"category":"Movie Characters", "question":"Sheldon Cooper"},
+        {"category":"Movie Characters", "question":"Hannibal Lecter"},
+        {"category":"Movie Characters", "question":"Captain America"},
+        {"category":"Movie Characters", "question":"Edward Scissorhand"},
+        {"category":"Movie Characters", "question":"Robin Hood"},
+        {"category":"Movie Characters", "question":"Green Lantern"},
+        {"category":"Movie Characters", "question":"Winnetou"},
+        {"category":"Movie Characters", "question":"Sherlock Holmes"},
+        {"category":"Movie Characters", "question":"James Kirk"},
+        {"category":"Movie Characters", "question":"Spock"},
+        {"category":"Movie Characters", "question":"Jean Luc Picard"},
+        {"category":"Movie Characters", "question":"Luke Skywalker"}
+]};
+
+questions = questionsObj.questions;
+
+
+categories = categoriesObj.categories;
+$.each(categories, function( index, value ) {
+    $(".category-list-container").append("<a href='#' class='categoryListItem'>" + value + "</a>");
+});
+
+};
