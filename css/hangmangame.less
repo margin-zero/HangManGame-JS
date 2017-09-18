@@ -99,24 +99,44 @@ body {
     }
 }
 
-.game-letters {
+
+.lower-container {
+    
     margin: 40px auto 20px auto;
     width: 992px;
     text-align: left;
     padding: 10px 5px;
     background-color: rgba(128,128,128,0.2);
-    div {
-        .letter-tile;
-        color: rgba(0,0,0,0.8);
-        background-color: rgba(0,0,0,0.1);
-        border-color:  rgba(0,0,0,0.2);
-        margin: 2px;
 
-        &.clicked {
-            color: rgba(0,0,0,0.2);
+    .game-letters {
+
+        div {
+            .letter-tile;
+            color: rgba(0,0,0,0.8);
+            background-color: rgba(0,0,0,0.1);
+            border-color:  rgba(0,0,0,0.2);
+            margin: 2px;
+
+            &.clicked {
+                color: rgba(0,0,0,0.2);
+            }
         }
     }
+
+    .information {
+        text-align: center;
+        font-size: 1.5rem;
+
+        &.success {
+            color: green;
+        };
+
+        &.failure {
+            color: red;
+        };
+    }
 }
+
 
 .game-score {
     font-size: 1.1rem;

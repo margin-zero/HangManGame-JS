@@ -34,12 +34,12 @@ $(document).ready(function() {
 // functions
 
 function gameRun() {
-
     gameInit();
     gameRefreshInfo();
-    
-
 }
+
+
+
 
 function gameInit() {
 
@@ -51,10 +51,19 @@ function gameInit() {
 
     //reset game status
     game_in_progress = false;
+
+    // hide letters
+    $(".game-letters").hide();
+
+    // show game info text and remove coloring classes
+    $(".information").removeClass("success").removeClass("failure");
+    $(".information").show();
 }
 
 
+
 function gameRefreshInfo() {
+
     if (category_id>=0) {
         $(".game-info>.left>p>a").text(categories[category_id] + " - (" + current_questions.length +")");
     };
@@ -108,6 +117,8 @@ function gameCategoryNameClick() {
     $(".category-list").show();
 }
 
+
+
 function categoryListItemClick($this) {
 
     if (category_id != $($this).index()-1) { // if category was changed
@@ -144,8 +155,10 @@ function categoryListItemClick($this) {
     // finally hide category list
     $(".category-list").hide();
 
-    gameInit();
-    gameRefreshInfo();
+    $(".information").text("click 'New Game' button to start new riddle");
+
+    gameInit();         // init game after category change
+    gameRefreshInfo();  // refresh game info
 }
 
 function newGameClick($this) {
@@ -155,10 +168,17 @@ function newGameClick($this) {
     };
     gameInit();
     game_in_progress = true;
+    errors_left = 5;
+
+    $(".game-letters").show();
+    $(".information").hide();
 
     initQuestion();
     gameRefreshInfo();
 }
+
+
+
 
 function initQuestion() {
     var question = current_questions[question_id],
@@ -181,30 +201,60 @@ function initQuestion() {
 
 
 function letterClick($this) {
-    
+
     var letter_count = 0,
         i;
 
-    if (game_in_progress) {
-        if (!$($this).hasClass("clicked")) {
-            $($this).addClass("clicked");
-        };
+    if (errors_left>=0) {
 
-        for (i=0;i<current_questions[question_id-1].length; i++) {
-            if (current_questions[question_id-1].charAt(i) == $($this).text()) {
-                $(".game-table>div").eq(i).text($($this).text());
-                letter_count += 1;
+        if (game_in_progress) {
+            if (!$($this).hasClass("clicked")) {
+                $($this).addClass("clicked");
             };
-        };
 
-        if (letter_count == 0) {
-            errors_left -= 1;           
-        };
+            for (i=0;i<current_questions[question_id-1].length; i++) {
+                if (current_questions[question_id-1].charAt(i) == $($this).text()) {
+                    $(".game-table>div").eq(i).text($($this).text());
+                    letter_count += 1;
+                };
+            };
 
-        gameRefreshInfo();
-        // alert($($this).index());
-        // alert($($this).text());
+            if (letter_count == 0) {
+                errors_left -= 1;           
+            };
+
+            i = 0;
+
+            $(".game-table>div:not(.space").each(function(){
+                if ($(this).text().trim()=="") { i += 1;};
+            });
+
+            if (i==0) {  // i = 0 means no white space characters in question, so answer is completed
+                $(".game-letters").hide();
+                $(".information").text("You have won!").addClass("success");
+                $(".information").show();
+
+                game_in_progress = false;
+                score_total += 1;
+                score_won += 1;
+            };
+        }
     };
+    if (errors_left<0) {
+        $(".game-letters").hide();
+        $(".information").text("You have lost... The answer is: " + current_questions[question_id-1]).addClass("failure");
+        $(".information").show();
+
+        game_in_progress = false;
+
+        score_total += 1;
+        score_lost += 1;
+
+        errors_left = 0;
+    };
+
+    gameRefreshInfo();
+   
 }
 
 
