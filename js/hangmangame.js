@@ -21,27 +21,27 @@ $.getJSON("./questions.json", function(json) {
 $.getJSON("./categories.json", function(json) {
     categories = json.categories;
     $.each(categories, function( index, value ) {
-        $(".category-list-container").append("<a href='#'>" + value + "</a>");
+        $(".category-list-container").append("<a href='#' class='categoryListItem'>" + value + "</a>");
       });
 });
 
 
 $(document).ready(function() {
-    HangManGameEventFunctions();
-    HangManGameRun();
+    assignEventFunctions();
+    gameRun();
 });
 
 // functions
 
-function HangManGameRun() {
+function gameRun() {
 
-    HangManGameInit();
-    HangManGameRefreshInfo();
+    gameInit();
+    gameRefreshInfo();
     
 
 }
 
-function HangManGameInit() {
+function gameInit() {
 
     // remove answer tiles
     $(".game-table").empty();
@@ -54,7 +54,7 @@ function HangManGameInit() {
 }
 
 
-function HangManGameRefreshInfo() {
+function gameRefreshInfo() {
     if (category_id>=0) {
         $(".game-info>.left>p>a").text(categories[category_id] + " - (" + current_questions.length +")");
     };
@@ -77,26 +77,26 @@ function HangManGameRefreshInfo() {
 
 // assign functions for object events
 
-function HangManGameEventFunctions() {
+function assignEventFunctions() {
     
     // click on category name - game screen
-    $(".game-info>.left a").click(function() {
-        GameCategoryClick();
+    $("#gameCategoryName").click(function() {
+        gameCategoryNameClick();
     });
 
     // click on category name - category list
-    $(".category-list-container>a").click(function() {
-        CategoryListClick($(this));
+    $(".categoryListItem").click(function() {
+        categoryListItemClick($(this));
     })
 
     // click on "new game" button
-    $(".game-buttons>a").click(function() {
-        NewGameClick($(this));
+    $("#newGame").click(function() {
+        newGameClick($(this));
     })
 
     // click on letter
     $(".game-letters>div").click(function() {
-        GameLetterClick($(this));
+        letterClick($(this));
     })
 }
 
@@ -104,29 +104,28 @@ function HangManGameEventFunctions() {
 
 // definitions of object events functions
 
-function GameCategoryClick() {
+function gameCategoryNameClick() {
     $(".category-list").show();
 }
 
-function CategoryListClick($this) {
+function categoryListItemClick($this) {
 
-    if (category_id != $($this).index()-1) {
-        current_questions = [];
-        category_id = $($this).index()-1;
-        score_total = 0;
+    if (category_id != $($this).index()-1) { // if category was changed
+        current_questions = [];              // reset current questions set
+        category_id = $($this).index()-1;    // set new current category ID
+        score_total = 0;                     // reset score
         score_lost = 0;
         score_won = 0;
-        game_in_progress = false;
+        game_in_progress = false;            // game is not in progress until "New game" button is clicked
         
-        errors_left = 5;
-        question_id = 0;
-        questions_count = 0;
+        errors_left = 5;                     // reset errors count
+        question_id = 0;                     // set current question to 0
+        questions_count = 0;                 // reset question count
 
-        $.each(questions, function( index, value ) {
-
+        $.each(questions, function( index, value ) { // check all questions, select questions with current category and put them into current questions table
             if (value.category==categories[category_id]) {
-                questions_count += 1;
-                current_questions.push(value.question.toUpperCase());
+                questions_count += 1;        // count questions in current category
+                current_questions.push(value.question.toUpperCase()); // all questions to uppercase
             };
         });  
 
@@ -142,25 +141,26 @@ function CategoryListClick($this) {
         };
     };
     
+    // finally hide category list
     $(".category-list").hide();
 
-    HangManGameInit();
-    HangManGameRefreshInfo();
+    gameInit();
+    gameRefreshInfo();
 }
 
-function NewGameClick($this) {
+function newGameClick($this) {
     if (game_in_progress) { 
         score_total += 1;
         score_lost += 1;
     };
-    HangManGameInit();
+    gameInit();
     game_in_progress = true;
 
-    GameInitQuestion();
-    HangManGameRefreshInfo();
+    initQuestion();
+    gameRefreshInfo();
 }
 
-function GameInitQuestion() {
+function initQuestion() {
     var question = current_questions[question_id],
         i;
 
@@ -180,7 +180,7 @@ function GameInitQuestion() {
 
 
 
-function GameLetterClick($this) {
+function letterClick($this) {
     
     var letter_count = 0,
         i;
@@ -201,7 +201,7 @@ function GameLetterClick($this) {
             errors_left -= 1;           
         };
 
-        HangManGameRefreshInfo();
+        gameRefreshInfo();
         // alert($($this).index());
         // alert($($this).text());
     };
