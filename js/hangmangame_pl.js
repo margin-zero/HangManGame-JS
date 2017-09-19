@@ -314,12 +314,11 @@ var categoriesObj = {"categories" : [ "Star Wars"]},
         {"category":"Star Wars", "question":"Anakin Skywalker"},
         {"category":"Star Wars", "question":"Mace Windu"},
         {"category":"Star Wars", "question":"Yoda"},
-        {"category":"Star Wars", "question":"Lando Calrissian"},
+        {"category":"Star Wars", "question":"Mace Windu"},
         {"category":"Star Wars", "question":"Qui-Gon Jinn"}
 ]};
 
 questions = questionsObj.questions;
-
 
 categories = categoriesObj.categories;
 $.each(categories, function( index, value ) {
