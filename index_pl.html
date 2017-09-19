@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <!-- Turn OFF default phone number formatting in MS EDGE -->
+    <meta name="format-detection" content="telephone=no">
+
+    <!-- Google fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,500&amp;subset=latin-ext" rel="stylesheet">
+
+    <!-- PLUGIN CSS -->
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/hangmangame.css">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <title>Wisielec - gra - v. 1.0</title>
+
+</head>
+
+<body>
+ 
+    <header class="game-header">
+        <h1>Wisielec</h1>
+        <p>gra</p>
+    </header>
+
+    <section class="game-info group">
+        <div class="left">
+            <p>kategoria: <a href="#" id="gameCategoryName">kliknij aby wybrać</a></p>
+        </div>
+        <div class="right">
+            <p>dopuszczalne błędy: <span>5</span></p>
+        </div>
+    </section>
+
+    <section class="game-table group">
+    </section>
+
+    <section class="lower-container">
+        <div class="game-letters">
+            <div class="letter">A</div>
+            <div class="letter">Ą</div>
+            <div class="letter">B</div>
+            <div class="letter">C</div>
+            <div class="letter">Ć</div>
+            <div class="letter">D</div>
+            <div class="letter">E</div>
+            <div class="letter">Ę</div>
+            <div class="letter">F</div>
+            <div class="letter">G</div>
+            <div class="letter">H</div>
+            <div class="letter">I</div>
+            <div class="letter">J</div>
+            <div class="letter">K</div>
+            <div class="letter">L</div>
+            <div class="letter">Ł</div>
+            <div class="letter">M</div>
+            <div class="letter">N</div>
+            <div class="letter">Ń</div>
+            <div class="letter">O</div>
+            <div class="letter">Ó</div>
+            <div class="letter">P</div>
+            <div class="letter">Q</div>
+            <div class="letter">R</div>
+            <div class="letter">S</div>
+            <div class="letter">Ś</div>
+            <div class="letter">T</div>
+            <div class="letter">U</div>
+            <div class="letter">V</div>
+            <div class="letter">W</div>
+            <div class="letter">X</div>
+            <div class="letter">Y</div>
+            <div class="letter">Z</div>
+            <div class="letter">Ź</div>
+            <div class="letter">Ż</div>
+        </div>
+
+        <div class="information">
+            informacje o grze
+        </div>
+
+
+    </section>
+
+    <section class="game-score">
+        <p>Twoje gry (wszystkie - wygrane - przegrane): <span class="total">0</span> - <span class="won">0</span> - <span class="lost">0</span></p>
+    </section>
+
+    <section class="game-buttons"><a href="#" id="newGame">Nowa Gra</a></section>
+
+    <section class="category-list">
+        <div class="category-list-container">
+            <h1>Wybierz kategorię:</h1>
+        </div>
+    </section>
+
+    <p class="test"></p>
+    <!-- jQuery and GameJS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script src="js/hangmangame_pl.js"></script>
+</body>
+
+</html>
