@@ -282,15 +282,40 @@ function loadDataFromLocalFiles() {
 
 
 function loadDataFromObjects() {
-var categoriesObj = {"categories" : [ "Star Wars", "Test"]},
+var categoriesObj = {"categories" : [ "Star Wars"]},
 
     questionsObj = {"questions" : [ 
         {"category":"Star Wars", "question":"Leia Organa"},
-        {"category":"Star Wars", "question":"Królowa Amidala"},
+        {"category":"Star Wars", "question":"Padme Amidala"},
         {"category":"Star Wars", "question":"Darth Vader"},
         {"category":"Star Wars", "question":"Han Solo"},
         {"category":"Star Wars", "question":"Luke Skywalker"},
-        {"category":"Test", "question":"Jaba Daba Zażółć gęślą jaźń"}
+        {"category":"Star Wars", "question":"Admiral Ackbar"},
+        {"category":"Star Wars", "question":"Jar Jar Binks"},
+        {"category":"Star Wars", "question":"Lando Calrissian"},
+        {"category":"Star Wars", "question":"Poe Dameron"},
+        {"category":"Star Wars", "question":"Chewbacca"},
+        {"category":"Star Wars", "question":"Jyn Erso"},
+        {"category":"Star Wars", "question":"Boba Fett"},
+        {"category":"Star Wars", "question":"Jango Fett"},
+        {"category":"Star Wars", "question":"Finn"},
+        {"category":"Star Wars", "question":"Saw Gerrera"},
+        {"category":"Star Wars", "question":"General Grievous"},
+        {"category":"Star Wars", "question":"Jabba the Hutt"},
+        {"category":"Star Wars", "question":"Maz Kanata"},
+        {"category":"Star Wars", "question":"Obi Wan Kenobi"},
+        {"category":"Star Wars", "question":"Darth Maul"},
+        {"category":"Star Wars", "question":"Darth Sidious"},
+        {"category":"Star Wars", "question":"Maz Kanata"},
+        {"category":"Star Wars", "question":"Captain Panaka"},
+        {"category":"Star Wars", "question":"Captain Phasma"},
+        {"category":"Star Wars", "question":"Kylo Ren"},
+        {"category":"Star Wars", "question":"Sebulba"},
+        {"category":"Star Wars", "question":"Anakin Skywalker"},
+        {"category":"Star Wars", "question":"Mace Windu"},
+        {"category":"Star Wars", "question":"Yoda"},
+        {"category":"Star Wars", "question":"Lando Calrissian"},
+        {"category":"Star Wars", "question":"Qui-Gon Jinn"}
 ]};
 
 questions = questionsObj.questions;
