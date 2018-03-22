@@ -224,7 +224,7 @@ function letterClick($this) {
 
             if (i==0) {  // i = 0 means no white space characters in question, so answer is completed
                 $(".game-letters").hide();
-                $(".information").text("You have won!").addClass("success");
+                $(".information").text("You won!").addClass("success");
                 $(".information").show();
 
                 game_in_progress = false;
@@ -235,7 +235,7 @@ function letterClick($this) {
     };
     if (errors_left<0) {
         $(".game-letters").hide();
-        $(".information").text("You have lost... The answer is: " + current_questions[question_id-1]).addClass("failure");
+        $(".information").text("You lost... The answer is: " + current_questions[question_id-1]).addClass("failure");
         $(".information").show();
 
         game_in_progress = false;
